@@ -1,3 +1,7 @@
+#general{
+    padding: 5vh;
+}
+
 #headerEs{
     background-color:white;
     color: black;
@@ -5,4 +9,18 @@
 #headerEn{
     background-color:black;
     color: white;
+}
+
+#tabla {
+    width: 70%;
+  }
+
+  
+#detalle {
+    width: 30%;
+    height: 1vh;
+  }
+
+#imagen{
+    height: 70vh;
 }

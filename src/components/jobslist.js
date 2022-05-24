@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import Job from "./job";
+import Job, {DetailContext} from "./job";
+import JobDetail from "./jobDetail";
 import { FormattedMessage, useIntl } from 'react-intl';
 import  './joblist.css';
+
+
 
 const JobsList = () => {
   const [offers] = useState([
@@ -12,7 +15,8 @@ const JobsList = () => {
       country: "United States",
       budget: 1,
       relase: "1942-05-01",
-      views: 1256000
+      views: 1256000,
+      description: "This is description 1"
     },
     {
       id: "2",
@@ -21,7 +25,8 @@ const JobsList = () => {
       country: "Colombia",
       budget: 2,
       relase: "2015-12-23",
-      views: 7256000
+      views: 7256000,
+      description: "This is description 2"
     },
     {
       id: "3",
@@ -30,7 +35,8 @@ const JobsList = () => {
       country: "Germany",
       budget: 3,
       relase: "2001-04-28",
-      views: 856000
+      views: 856000,
+      description: "This is description 3"
     },
   ]);
 
@@ -42,7 +48,8 @@ const JobsList = () => {
       country: "Estados Unidos",
       budget: 1,
       relase: "1942-05-01",
-      views: 1256000
+      views: 1256000,
+      description: "Esta es la descripccion 1"
     },
     {
       id: "2",
@@ -51,7 +58,8 @@ const JobsList = () => {
       country: "Colombia",
       budget: 2,
       relase: "2015-12-23",
-      views: 7256000
+      views: 7256000,
+      description: "Esta es la descripccion 2"
     },
     {
       id: "3",
@@ -60,14 +68,16 @@ const JobsList = () => {
       country: "Alemania",
       budget: 3,
       relase: "2001-04-28",
-      views: 856000
+      views: 856000,
+      description: "Esta es la descripccion 3"
     },
   ]);
 
   var lng = useIntl().locale;
 
   return (
-    <div>
+    <div className="row" id="general">
+     <div className="column" id="tabla">
       <table className="table">
         <thead className="thead-dark">
           <tr id={lng==="es"?"headerEs":"headerEn"}>
@@ -91,6 +101,13 @@ const JobsList = () => {
           }
         </tbody>
       </table>
+      </div>
+
+      <div className="column" id="detalle">
+      <JobDetail description={DetailContext._currentValue.des}/>
+      
+      </div>
+      
     </div>
   );
 };

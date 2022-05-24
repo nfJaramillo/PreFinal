@@ -1,12 +1,33 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import { FormattedDate, FormattedNumber, useIntl } from 'react-intl';
 
 
 
+
+
+export const DetailContext = React.createContext(
+  {
+  des: "aaa"
+});
+
+
 const Job = (props) => {
+
+  const [state, setState] = useState({});
+  
+  var { description } = useContext(DetailContext);
+
+  function setDetail(des){
+    setState({
+    description: des,
+  });
+}  
+  description = state
+  
+  
   var lng = useIntl().locale;
   return (
-    <tr>
+    <tr onClick={()=> setDetail(props.offer.description)}>
       <th scope="row">{props.offer.id}</th>
       <td>{props.offer.name}</td>
       <td>{props.offer.directed}</td>
@@ -24,4 +45,8 @@ const Job = (props) => {
   );
 };
 
-export default Job;
+
+
+
+
+export default Job
